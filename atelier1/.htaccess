@@ -1,4 +1,4 @@
 AuthName "Accès protégé"
 AuthType Basic
-AuthUserFile /home/kais/www/.htpasswd
+AuthUserFile /home/kais/www/atelier1/.htpasswd
 Require valid-user
