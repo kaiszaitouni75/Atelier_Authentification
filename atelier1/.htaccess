@@ -1,0 +1,4 @@
+AuthName "Accès protégé"
+AuthType Basic
+AuthUserFile /home/{kais}/www/.htpasswd
+Require valid-user
