@@ -13,6 +13,10 @@ if (!isset($_SESSION['authToken'])) {
 if (isset($_COOKIE['authToken']) && $_COOKIE['authToken'] === $_SESSION['authToken']) {
     header('Location: page_admin.php');
     exit();
+
+elseif (isset($_COOKIE['authToken']) && $_COOKIE['authToken'] === $_SESSION['authToken']) {
+    header('Location: page_user.php');
+    exit();
 }
 
 // Gérer la soumission du formulaire
