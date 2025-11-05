@@ -27,7 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         header('Location: page_admin.php');
         exit();
-    } else {
+    } 
+    
+    elseif ($username === 'user' && $password === 'utilisateur') {
+        
+        setcookie('authToken', $_SESSION['authToken'], time() + 60, '/', '', false, true);
+        
+        $_SESSION['role'] = 'user';
+        
+        header('Location: page_user.php');
+        exit();
+    }
+        
+    else {
         $error = "Nom d'utilisateur ou mot de passe incorrect.";
     }
 }
