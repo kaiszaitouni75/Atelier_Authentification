@@ -2,7 +2,9 @@
 setcookie('lang', 'fr', time() + 60, null, null, false, true);
 // Démarrer une session utilisateur qui sera en mesure de pouvoir gérer les Cookies
 session_start();
+if (!isset($_SESSION['authToken'])) {
 $_SESSION['random_number'] = bin2hex(random_bytes(16)); 
+}
 // Vérifier si l'utilisateur est déjà en possession d'un cookie valide (cookie authToken ayant le contenu 12345)
 // Si l'utilisateur possède déjà ce cookie, il sera redirigé automatiquement vers la page home.php
 // Dans le cas contraire il devra s'identifier.
