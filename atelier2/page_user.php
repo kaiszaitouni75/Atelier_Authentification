@@ -18,8 +18,8 @@ if (!isset($_COOKIE['authToken']) || !isset($_SESSION['authToken']) || $_COOKIE[
     <title>Accueil</title>
 </head>
 <body>
-    <h1>Bienvenue sur la page Administrateur protégée par un Cookie</h1>
-    <p>Vous êtes connecté en tant qu'admin.</p>
+    <h1>Bienvenue sur la page User protégée par un Cookie</h1>
+    <p>Vous êtes connecté en tant qu'user.</p>
     <a href="logout.php">Se déconnecter</a>
 </body>
 </html>
