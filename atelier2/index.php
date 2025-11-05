@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === 'admin' && $password === 'secret') {
 
         // Créer le cookie avec le token de session
-        setcookie('authToken', $_SESSION['authToken'], time() + 3600, '/', '', false, true);
+        setcookie('authToken', $_SESSION['authToken'], time() + 60, '/', '', false, true);
 
         header('Location: page_admin.php');
         exit();
