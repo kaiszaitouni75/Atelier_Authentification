@@ -1,4 +1,5 @@
 <?php
+setcookie('lang', 'fr', time() + 60, null, null, false, true);
 // Démarrer une session utilisateur qui sera en mesure de pouvoir gérer les Cookies
 session_start();
 
