@@ -33,8 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         setcookie('authToken', $_SESSION['authToken'], time() + 60, '/', '', false, true);
         
-        $_SESSION['role'] = 'user';
-        
         header('Location: page_user.php');
         exit();
     }
