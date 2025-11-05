@@ -11,12 +11,16 @@ if (!isset($_SESSION['authToken'])) {
 
 // Vérifier si l'utilisateur est déjà connecté (cookie valide)
 if (isset($_COOKIE['authToken']) && $_COOKIE['authToken'] === $_SESSION['authToken']) {
-    header('Location: page_admin.php');
-    exit();
-
-elseif (isset($_COOKIE['authToken']) && $_COOKIE['authToken'] === $_SESSION['authToken']) {
-    header('Location: page_user.php');
-    exit();
+    
+    // Rediriger selon le rôle
+    if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+        header('Location: page_admin.php');
+        exit();
+    } 
+    elseif (isset($_SESSION['role']) && $_SESSION['role'] === 'user') {
+        header('Location: page_user.php');
+        exit();
+    }
 }
 
 // Gérer la soumission du formulaire
@@ -25,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     if ($username === 'admin' && $password === 'secret') {
+
+        // Stocker le rôle en session
+        $_SESSION['role'] = 'admin';
 
         // Créer le cookie avec le token de session
         setcookie('authToken', $_SESSION['authToken'], time() + 60, '/', '', false, true);
@@ -35,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     elseif ($username === 'user' && $password === 'utilisateur') {
         
+        $_SESSION['role'] = 'user';
+
         setcookie('authToken', $_SESSION['authToken'], time() + 60, '/', '', false, true);
         
         header('Location: page_user.php');
