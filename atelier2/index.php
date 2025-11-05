@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Vérification simple du username et de son password.
     // Si ok alors on initialise le cookie sur le poste de l'utilisateur 
-random_number === bin2hex(random_bytes(16)) 
+    random_number === bin2hex(random_bytes(16)) 
     
     if ($username === 'admin' && $password === 'secret') {
         setcookie('authToken', random_number, time() + 3600, '/', '', false, true); // Le Cookie est initialisé et valable pendant 1 heure (3600 secondes) 
